@@ -4,7 +4,7 @@ using namespace std;
 class Pizza{
     private:
     string size;
-    vector<string> toppings;                    // An array of strings( string[] )
+    vector<string> Toppings;                    // An array of strings( string[] )
     string sauce;
 
     public:
