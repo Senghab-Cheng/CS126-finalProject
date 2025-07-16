@@ -5,6 +5,8 @@
 using namespace std;
 
 void showImage();
+void showImage1();
+void showImage2();
 
 #endif
 class Pizza{

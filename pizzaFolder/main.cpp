@@ -132,8 +132,13 @@ system("clear");
         cout << "===================================================================================================" << endl;
     cout << " Please wait: " << endl;
     getLoadingBar();
-    showImage();
-
-    
+    if(sauce == "Tomato"){
+        showImage();
+    }else if(sauce == "BBQ"){
+        showImage1();
+    }else if(sauce == "White"){
+        showImage2();
+    }
+        
     return 0;
 }

@@ -78,3 +78,28 @@ void showImage(){
     // Close the window
     cv::destroyAllWindows();
 }
+void showImage1(){
+   
+    cv::Mat image = cv::imread("pizza bbq.webp");
+
+    if (image.empty()) {
+        std::cerr << "Failed to load image.\n";
+        return;
+    }
+
+    cv::imshow("My Pizza", image);
+    cv::waitKey(0);
+    cv::destroyAllWindows();
+}
+void showImage2(){
+    cv::Mat image = cv::imread("pizza white.jpg");
+
+    if (image.empty()) {
+        std::cerr << "Failed to load image.\n";
+        return;
+    }
+  
+    cv::imshow("My Pizza", image);
+    cv::waitKey(0);
+    cv::destroyAllWindows();
+}
