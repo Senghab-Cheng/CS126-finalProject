@@ -4,6 +4,7 @@
 #define LIGHT_BLUE "\033[38;5;123m"
 #define RESET "\033[0m"      
 
+
 // Set the size of the pizza
 void Pizza::setSize(string NewSize) {
     size = NewSize;
@@ -15,7 +16,7 @@ string Pizza::getSize() {
 }
 
 // Add toppings to the pizza
-void Pizza::addToppings(const string& topping) {            
+void Pizza::addToppings( const string& topping) {            
     Toppings.push_back(topping);                           /* push_back(topping) adds the given string to the end of the list. */
 }                                                          /* Ex: if u add A, it will be added to toppings. Then if u add B after 
                                                                     that, B will be added after A  */
@@ -36,27 +37,30 @@ string Pizza::getSauce() {
 }
 
 // Print all pizza information
-void Pizza::getPizzaInfo() {
-        cout << "+=================================================================================================+" << endl;
-        cout << "|                                                                                                 |" << endl;
-        cout << "|";cout << LIGHT_BLUE;
-        cout << "                                     >>>  Pizza Info  <<<                                        ";cout << RESET;cout << "|" << endl;
-        cout << "|                                                                                                 |" << endl;
-        cout << "+=================================================================================================+" << endl;
-        cout << "Size: " << size << endl;
-        cout << "Sauce: " << sauce << endl;
-        cout << "Toppings: ";
+void Pizza::getPizzaInfo(std::ostream &out) {
+        bool isTerminal = (&out ==&std::cout);
+        if (isTerminal) out << LIGHT_BLUE;
+        out << "+=================================================================================================+" << endl;
+        out << "|                                                                                                 |" << endl;
+        out << "|                                                                                                 |" << endl;
+        out << "|                                     >>>  Pizza Info  <<<                                        |" << endl;
+        out << "|                                                                                                 |" << endl;
+        out << "+=================================================================================================+" << endl;
+        if (isTerminal) out << RESET;
+        out << "Size: " << size << endl;
+        out << "Sauce: " << sauce << endl;
+        out << "Toppings: ";
         
         if (Toppings.empty()) {
-            cout << "No toppings" << endl;
+            out << "No toppings" << endl;
         } else {
             for (int i = 0; i < Toppings.size(); i++) {
-                cout << Toppings[i];
+                out << Toppings[i];
                 if (i < Toppings.size() - 1) {
-                    cout << ", ";
+                    out << ", ";
                 }
             }
-            cout << endl;
+            out << endl;
         }
 }
 

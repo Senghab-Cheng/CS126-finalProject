@@ -8,7 +8,6 @@ void showImage();
 void showImage1();
 void showImage2();
 
-#endif
 class Pizza{
     private:
     string size;
@@ -22,5 +21,6 @@ class Pizza{
     vector<string> getToppings();               // A way to return all the toppings
     void setSauce(string NewSauce);
     string getSauce();
-    void getPizzaInfo();                        // Prints all info of the pizza out
+    void getPizzaInfo(ostream &out);                        // Prints all info of the pizza out
 };
+#endif

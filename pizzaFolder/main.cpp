@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include "loadingBar.h"
 #include "pizza.h"
 #define LIGHT_PEACH "\033[38;5;223m"
@@ -9,6 +10,12 @@ using namespace std;
 int main() {
 system("clear");
 
+        ofstream outputFile;
+        outputFile.open("data.txt", ios::app);
+        if(!outputFile){
+            cerr << "Failed to open data.txt ";
+            return 1;
+        }
 
 
    cout << "+=================================================================================================+" << endl;
@@ -114,7 +121,9 @@ system("clear");
         cout << " ";cout << LIGHT_PEACH;
         cout << "                            >>>  Your Pizza is nearly Ready  <<<                                 ";cout << RESET;cout << " " << endl;
         cout << endl;
-        myPizza.getPizzaInfo();
+        myPizza.getPizzaInfo(cout);
+        myPizza.getPizzaInfo(outputFile);
+        
 
     
     // Show individual details
@@ -139,6 +148,7 @@ system("clear");
     }else if(sauce == "White"){
         showImage2();
     }
-        
+    
+    outputFile.close();
     return 0;
 }
